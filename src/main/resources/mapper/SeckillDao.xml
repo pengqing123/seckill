@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wen.seckill.dao.SeckillDao">
+	<!-- 减少库存操作 -->
+	<update id="reduceNumber">
+		update 
+			seckill 
+		set number=number-1
+		where seckill_id=#{seckillId}
+		AND start_time  &lt;=#{killTime}
+		and end_time>=#{killTime}
+		and number>0
+	</update>
+	<!-- 根据id  查询 -->
+	<select id="queryById" resultType="Seckill" parameterType="long">
+		select seckill_id,name,number,start_time,end_time,create_time from seckill
+		where seckill_id=#{seckillId}
+	</select>
+		<!-- 根据id  查询 -->
+	<select id="queryAll" resultType="Seckill" >
+		select seckill_id,name,number,start_time,end_time,create_time from seckill
+	</select>
+</mapper>
