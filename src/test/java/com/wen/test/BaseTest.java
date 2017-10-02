@@ -11,6 +11,7 @@ import com.wen.seckill.App;
 /**
  * 配置spring和junit整合，junit启动时加载springIOC容器 spring-test,junit
  */
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes=App.class)
 @WebAppConfiguration
