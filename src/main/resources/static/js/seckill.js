@@ -9,13 +9,13 @@ var seckill = {
 			  var pos=curWwwPath.indexOf(pathName);
 			  var localhostPaht=curWwwPath.substring(0,pos);
 			return localhostPaht;
-		},
+		},//时间
 		now : function() {
 			return seckill.URL.basePath() + '/seckill/time/now';
-		},
+		},//接口暴露
 		exposer : function(seckillId) {
 			return seckill.URL.basePath() + '/seckill/' + seckillId + '/exposer';
-		},
+		},//秒杀
 		execution : function(seckillId, md5) {
 			return seckill.URL.basePath() + '/seckill/' + seckillId + '/' + md5 + '/execution';
 		}
@@ -56,7 +56,7 @@ var seckill = {
 					var now = exposer['now'];
 					var start = exposer['start'];
 					var end = exposer['end'];
-					// 重新计算计时逻辑
+					// 重新计算计时逻
 					seckill.countdown(seckillId, now, start, end);
 				}
 			} else {
