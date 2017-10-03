@@ -42,7 +42,4 @@ public class SeckillDaoTest extends BaseTest {
 			System.out.println(seckill);
 		}
 	}
-
-	
-
 }
