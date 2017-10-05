@@ -1,12 +1,13 @@
 package com.wen.seckill.model;
 
 
+import java.io.Serializable;
 import java.util.Date;
 /**
  * 成功秒杀实体
  * 
  */
-public class SuccessKilled {
+public class SuccessKilled implements Serializable{
 
 	private long seckillId;
 

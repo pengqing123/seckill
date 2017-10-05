@@ -1,6 +1,6 @@
 package com.wen.seckill.enums;
 
-public enum SeckillStatEnum {
+public enum SeckillStateEnum {
 	SUCCESS(1,"秒杀成功"),
 	END(0,"秒杀结束"),
 	FAIL_Kill(-4,"秒杀失败"),
@@ -8,7 +8,6 @@ public enum SeckillStatEnum {
 	INNER_ERROR(-2,"系统异常"),
 	DATA_REWRITE(-3,"数据篡改"),
 	;
-	
 	public int getState() {
 		return state;
 	}
@@ -23,12 +22,12 @@ public enum SeckillStatEnum {
 	}
 	private int state;
 	private String  stateInfo;
-	private SeckillStatEnum(int state, String stateInfo) {
+	private SeckillStateEnum(int state, String stateInfo) {
 		this.state = state;
 		this.stateInfo = stateInfo;
 	}
-	public static SeckillStatEnum stateInfo(int index) {
-		for(SeckillStatEnum state :values()) {
+	public static SeckillStateEnum stateInfo(int index) {
+		for(SeckillStateEnum state :values()) {
 			if(state.getState()==index) {
 				return state;
 			}

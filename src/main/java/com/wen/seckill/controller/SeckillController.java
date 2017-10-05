@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.wen.seckill.dto.Exposer;
 import com.wen.seckill.dto.SeckillExecution;
 import com.wen.seckill.dto.SeckillResult;
-import com.wen.seckill.enums.SeckillStatEnum;
+import com.wen.seckill.enums.SeckillStateEnum;
 import com.wen.seckill.exception.RepeatKillException;
 import com.wen.seckill.exception.SeckillCloseException;
 import com.wen.seckill.model.Seckill;
@@ -81,17 +81,17 @@ public class SeckillController {
 		}
 		try {
 			// 存储过程调用
-			SeckillExecution execution = seckillService.executeSeckill(seckillId, phone, md5);
+			SeckillExecution execution = seckillService.executeSeckillProcedure(seckillId, phone, md5);
 			return new SeckillResult<SeckillExecution>(true, execution);
 		} catch (RepeatKillException e) {
-			SeckillExecution execution = new SeckillExecution(seckillId, SeckillStatEnum.REPEAT_KILL);
+			SeckillExecution execution = new SeckillExecution(seckillId, SeckillStateEnum.REPEAT_KILL);
 			return new SeckillResult<SeckillExecution>(true, execution);
 		} catch (SeckillCloseException e) {
-			SeckillExecution execution = new SeckillExecution(seckillId, SeckillStatEnum.END);
+			SeckillExecution execution = new SeckillExecution(seckillId, SeckillStateEnum.END);
 			return new SeckillResult<SeckillExecution>(true, execution);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			SeckillExecution execution = new SeckillExecution(seckillId, SeckillStatEnum.INNER_ERROR);
+			SeckillExecution execution = new SeckillExecution(seckillId, SeckillStateEnum.INNER_ERROR);
 			return new SeckillResult<SeckillExecution>(true, execution);
 		}
 	}

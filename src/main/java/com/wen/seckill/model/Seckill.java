@@ -1,10 +1,11 @@
 package com.wen.seckill.model;
+import java.io.Serializable;
 import java.util.Date;
+
 /**
  * 秒杀库存实体
  */
-public class Seckill {
-
+public class Seckill implements Serializable{
 	private long seckillId;
 
 	private String name;
@@ -65,10 +66,6 @@ public class Seckill {
 		this.createTime = createTime;
 	}
 
-	@Override
-	public String toString() {
-		return "Seckill [seckillId=" + seckillId + ", name=" + name + ", number=" + number + ", startTime=" + startTime
-				+ ", endTime=" + endTime + ", createTime=" + createTime + "]";
-	}
+
 
 }

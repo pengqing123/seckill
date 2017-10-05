@@ -1,6 +1,6 @@
 package com.wen.seckill.dto;
 
-import com.wen.seckill.enums.SeckillStatEnum;
+import com.wen.seckill.enums.SeckillStateEnum;
 import com.wen.seckill.model.SuccessKilled;
 
 public class SeckillExecution {
@@ -10,13 +10,13 @@ public class SeckillExecution {
 	private  String stateInfo;
 	private SuccessKilled successKilled;
 	
-	public SeckillExecution(long seckillId, SeckillStatEnum statEnum) {
+	public SeckillExecution(long seckillId, SeckillStateEnum statEnum) {
 		super();
 		SeckillId = seckillId;
 		this.state = statEnum.getState();
 		this.stateInfo = statEnum.getStateInfo();
 	}
-	public SeckillExecution(long seckillId, SeckillStatEnum statEnum, SuccessKilled successKilled) {
+	public SeckillExecution(long seckillId, SeckillStateEnum statEnum, SuccessKilled successKilled) {
 		super();
 		SeckillId = seckillId;
 		this.state = statEnum.getState();
